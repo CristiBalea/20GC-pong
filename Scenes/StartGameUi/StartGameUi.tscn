@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://cpdd3l7odlaho" path="res://Assets/fonts/Teko-Bold.ttf" id="1_6pr6y"]
 [ext_resource type="Script" uid="uid://tto2wm5j03vw" path="res://Scenes/StartGameUi/StartGameUi.gd" id="1_85eg6"]
 [ext_resource type="FontFile" uid="uid://dpswyhmcaqjck" path="res://Assets/fonts/Teko-SemiBold.ttf" id="3_83ne2"]
+[ext_resource type="AudioStream" uid="uid://bjddsi2yitlx0" path="res://Assets/sounds/go.ogg" id="4_yrhjb"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_85eg6"]
 font = ExtResource("1_6pr6y")
@@ -54,5 +55,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CountdownAudio" type="AudioStreamPlayer2D" parent="." unique_id=1445472377]
+position = Vector2(0, -1)
+stream = ExtResource("4_yrhjb")
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

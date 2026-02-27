@@ -39,13 +39,11 @@ func _process(delta: float) -> void:
 
 
 func show_countdown() -> void:
-	var time_left = ceil(countdown_timer.time_left)
-	if time_left == 3:
-		countdown_audio.play()
-	print(time_left)
+	countdown_label.text = "%d" % ceil(countdown_timer.time_left)
 
 
 func _on_countdown_timer_timeout() -> void:
 	countdown_label.hide()
 	get_tree().paused = false
+	countdown_audio.play()
 	SignalHub.emit_start_game()
