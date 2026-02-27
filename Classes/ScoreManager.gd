@@ -24,13 +24,8 @@ func get_player_two_score() -> int:
 
 
 func on_scored(player: Constants.Player) -> void:
+	audio_stream_player2d.play()
 	if player == Constants.Player.PlayerOne:
 		_score_player_one += 1
 	elif player == Constants.Player.PlayerTwo:
 		_score_player_two += 1
-	audio_stream_player2d.play()
-	
-	print("Current score: P1: %d , P2: %d" % [_score_player_one, _score_player_two])
-	
-
-

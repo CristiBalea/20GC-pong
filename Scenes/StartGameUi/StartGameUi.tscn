@@ -14,6 +14,7 @@ font_color = Color(1, 1, 0.35686275, 1)
 font = ExtResource("3_83ne2")
 font_size = 170
 font_color = Color(0.7058824, 0, 0.68235296, 1)
+shadow_size = 0
 
 [node name="StartGameUi" type="Control" unique_id=572962368]
 layout_mode = 3
@@ -35,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PressSpaceToStartLabel" type="Label" parent="MarginContainer" unique_id=619537137]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Press Space to Start"
@@ -43,7 +45,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CountdownLabel" type="Label" parent="MarginContainer" unique_id=390337800]
-visible = false
 layout_mode = 2
 text = "3"
 label_settings = SubResource("LabelSettings_yrhjb")
@@ -55,7 +56,7 @@ wait_time = 3.0
 one_shot = true
 
 [node name="CountdownAudio" type="AudioStreamPlayer2D" parent="." unique_id=1445472377]
-position = Vector2(0, -1)
+position = Vector2(0, -2)
 stream = ExtResource("4_yrhjb")
 
 [connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]
