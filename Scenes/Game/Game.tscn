@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://60ooi3281jwr"]
+
+[ext_resource type="Script" uid="uid://c2o4exll670mb" path="res://Scenes/Game/Game.gd" id="1_3k6gv"]
+[ext_resource type="PackedScene" uid="uid://dpkt0yk0b8jun" path="res://Scenes/WallCollider/WallCollider.tscn" id="1_rdw05"]
+[ext_resource type="Texture2D" uid="uid://t887hj63lmw2" path="res://Assets/arts/Board.png" id="1_xbxml"]
+[ext_resource type="PackedScene" uid="uid://cp1pf3buqtne5" path="res://Scenes/Paddles/P1Paddle.tscn" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://dv8wk2tm64y53" path="res://Scenes/ScoreManager/ScoreManager.tscn" id="2_m1o7v"]
+[ext_resource type="PackedScene" uid="uid://fd87e15pbb0n" path="res://Scenes/Paddles/P2Paddle.tscn" id="5_y3kpf"]
+[ext_resource type="PackedScene" uid="uid://bxgrohljdlio6" path="res://Scenes/StartGameUi/StartGameUi.tscn" id="6_m1o7v"]
+[ext_resource type="PackedScene" uid="uid://d4lntevdh8ly" path="res://Scenes/ScoreNotifier/ScoreNotifier.tscn" id="7_1q8bt"]
+[ext_resource type="PackedScene" uid="uid://pwodg7noq3op" path="res://Scenes/ScoreUi/ScoreUi.tscn" id="8_m1o7v"]
+
+[node name="Game" type="Node2D" unique_id=861522191]
+script = ExtResource("1_3k6gv")
+
+[node name="ScoreManager" parent="." unique_id=2123483579 instance=ExtResource("2_m1o7v")]
+
+[node name="ScoreNotifier" parent="." unique_id=339319057 instance=ExtResource("7_1q8bt")]
+position = Vector2(1, -1)
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1546624415]
+position = Vector2(577.00006, 317)
+scale = Vector2(1.4638405, 1.389011)
+texture = ExtResource("1_xbxml")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=244864933]
+
+[node name="ScoreUI" parent="CanvasLayer" unique_id=2065007741 node_paths=PackedStringArray("score_manager") instance=ExtResource("8_m1o7v")]
+offset_left = 1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = -1.0
+score_manager = NodePath("../../ScoreManager")
+
+[node name="StartGameUi" parent="CanvasLayer" unique_id=572962368 instance=ExtResource("6_m1o7v")]
+process_mode = 3
+
+[node name="TopWall" parent="." unique_id=261468800 instance=ExtResource("1_rdw05")]
+position = Vector2(-3, 60)
+
+[node name="BottomWall" parent="." unique_id=1332209186 instance=ExtResource("1_rdw05")]
+position = Vector2(-1, 628)
+
+[node name="P1Paddle" parent="." unique_id=1527192639 instance=ExtResource("2_gwu2e")]
+position = Vector2(23, 304)
+
+[node name="P2Paddle" parent="." unique_id=1203874691 instance=ExtResource("5_y3kpf")]
+position = Vector2(1129, 294)

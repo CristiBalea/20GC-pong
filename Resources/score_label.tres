@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://cpf74cuaf1fr6"]
+
+[ext_resource type="FontFile" uid="uid://dpswyhmcaqjck" path="res://Assets/fonts/Teko-SemiBold.ttf" id="1_c56r0"]
+
+[resource]
+font = ExtResource("1_c56r0")
+font_size = 50
+font_color = Color(0, 0, 0, 1)

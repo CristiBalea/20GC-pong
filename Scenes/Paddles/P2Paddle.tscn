@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fd87e15pbb0n"]
+
+[ext_resource type="Texture2D" uid="uid://d2amn7j5h0d1w" path="res://Assets/arts/Computer.png" id="1_b2kjy"]
+[ext_resource type="Script" uid="uid://cuu2uch2msvbi" path="res://Scenes/Paddles/P2Paddle.gd" id="1_qd6wo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd6wo"]
+size = Vector2(18, 123)
+
+[node name="P2Paddle" type="CharacterBody2D" unique_id=1203874691]
+script = ExtResource("1_qd6wo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=965471681]
+texture = ExtResource("1_b2kjy")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1352457987]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_qd6wo")

@@ -1,0 +1,106 @@
+[gd_scene format=3 uid="uid://pwodg7noq3op"]
+
+[ext_resource type="Script" uid="uid://g7xibm5sy7ea" path="res://Scenes/ScoreUi/ScoreUi.gd" id="1_6oy64"]
+[ext_resource type="Texture2D" uid="uid://txfjq5xgebbx" path="res://Assets/arts/ScoreBar.png" id="1_pslia"]
+[ext_resource type="FontFile" uid="uid://dpswyhmcaqjck" path="res://Assets/fonts/Teko-SemiBold.ttf" id="2_6oy64"]
+[ext_resource type="LabelSettings" uid="uid://cpf74cuaf1fr6" path="res://Resources/score_label.tres" id="3_5aj00"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5aj00"]
+font = ExtResource("2_6oy64")
+font_size = 30
+font_color = Color(0.8117647, 0.05490196, 0.92156863, 0.5411765)
+
+[sub_resource type="LabelSettings" id="LabelSettings_48gdm"]
+font = ExtResource("2_6oy64")
+font_size = 30
+shadow_size = 0
+
+[node name="ScoreUI" type="Control" unique_id=2065007741]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6oy64")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=27150999]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1874453522]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=1305738811]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("1_pslia")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2117719956]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = -16
+
+[node name="TimeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=1926084457]
+layout_mode = 2
+text = "TIME"
+label_settings = SubResource("LabelSettings_5aj00")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElapsedTimeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=663538469]
+layout_mode = 2
+text = "1:59"
+label_settings = SubResource("LabelSettings_48gdm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/HBoxContainer" unique_id=135584497]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+texture = ExtResource("1_pslia")
+flip_h = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer" unique_id=253369214]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="ScorePlayer1" type="Label" parent="MarginContainer/HBoxContainer2" unique_id=354791316]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00"
+label_settings = ExtResource("3_5aj00")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScorePlayer2" type="Label" parent="MarginContainer/HBoxContainer2" unique_id=264415573]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "00"
+label_settings = ExtResource("3_5aj00")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="." unique_id=923681086]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

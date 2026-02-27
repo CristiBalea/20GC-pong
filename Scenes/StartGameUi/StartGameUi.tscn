@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bxgrohljdlio6"]
+
+[ext_resource type="FontFile" uid="uid://cpdd3l7odlaho" path="res://Assets/fonts/Teko-Bold.ttf" id="1_6pr6y"]
+[ext_resource type="Script" uid="uid://tto2wm5j03vw" path="res://Scenes/StartGameUi/StartGameUi.gd" id="1_85eg6"]
+[ext_resource type="FontFile" uid="uid://dpswyhmcaqjck" path="res://Assets/fonts/Teko-SemiBold.ttf" id="3_83ne2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_85eg6"]
+font = ExtResource("1_6pr6y")
+font_size = 72
+font_color = Color(1, 1, 0.35686275, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrhjb"]
+font = ExtResource("3_83ne2")
+font_size = 170
+font_color = Color(0.7058824, 0, 0.68235296, 1)
+
+[node name="StartGameUi" type="Control" unique_id=572962368]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_right = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_85eg6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=238305262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PressSpaceToStartLabel" type="Label" parent="MarginContainer" unique_id=619537137]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Press Space to Start"
+label_settings = SubResource("LabelSettings_85eg6")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownLabel" type="Label" parent="MarginContainer" unique_id=390337800]
+visible = false
+layout_mode = 2
+text = "3"
+label_settings = SubResource("LabelSettings_yrhjb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CountdownTimer" type="Timer" parent="." unique_id=1369637358]
+wait_time = 3.0
+one_shot = true
+
+[node name="CountdownAudio" type="AudioStreamPlayer2D" parent="." unique_id=1445472377]
+
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_countdown_timer_timeout"]

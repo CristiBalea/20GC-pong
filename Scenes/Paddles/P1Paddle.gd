@@ -1,0 +1,19 @@
+extends CharacterBody2D
+
+
+const SPEED: float = 300.0
+
+
+func _ready() -> void:
+	add_to_group("paddles")
+
+
+func _physics_process(delta: float) -> void:
+	var direction := Input.get_axis("p1_up", "p1_down")
+	if direction:
+		velocity.y = direction * SPEED
+	else:
+		velocity.y = move_toward(velocity.y, 0, SPEED)
+
+	move_and_slide()
+

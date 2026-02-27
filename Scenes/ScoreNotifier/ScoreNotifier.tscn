@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d4lntevdh8ly"]
+
+[ext_resource type="Script" uid="uid://bhckbngeuerm2" path="res://Scenes/ScoreNotifier/ScoreNotifier.gd" id="1_7m0df"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3kpf"]
+size = Vector2(13, 663)
+
+[node name="ScoreNotifier" type="Node2D" unique_id=867110413]
+script = ExtResource("1_7m0df")
+
+[node name="LeftArea2D" type="Area2D" parent="." unique_id=1814790893]
+position = Vector2(-1, -3)
+
+[node name="LeftCollisionShape2D" type="CollisionShape2D" parent="LeftArea2D" unique_id=102491805]
+position = Vector2(-11, 324)
+shape = SubResource("RectangleShape2D_y3kpf")
+
+[node name="RightArea2D2" type="Area2D" parent="." unique_id=49222669]
+
+[node name="RightCollisionShape2D2" type="CollisionShape2D" parent="RightArea2D2" unique_id=1480007681]
+position = Vector2(1162, 324)
+shape = SubResource("RectangleShape2D_y3kpf")
+
+[connection signal="body_entered" from="LeftArea2D" to="." method="_on_left_area_2d_body_entered"]
+[connection signal="body_entered" from="RightArea2D2" to="." method="_on_right_area_2d_2_body_entered"]
