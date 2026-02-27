@@ -10,17 +10,6 @@ class_name StartGameUi
 @onready var countdown_audio: AudioStreamPlayer2D = $CountdownAudio
 
 
-var sounds: Dictionary[Variant, Variant] = {
-	"one" = load("res://Assets/sounds/1.ogg"),
-	"two" = load("res://Assets/sounds/2.ogg"),
-	"three" = load("res://Assets/sounds/3.ogg"),
-	"game_over" = load("res://Assets/sounds/game_over.ogg"),
-	"tie" = load("res://Assets/sounds/it's_a_tie.ogg"),
-	"paddle_impact" = load("res://Assets/sounds/paddle_impact.ogg")
-	
-}
-
-
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("action"):
 		start_game.hide()
